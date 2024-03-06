@@ -1,8 +1,8 @@
 ###  DATE: 
 
-###  NAME: 
-###  ROLL NO :
-###  DEPARTMENT: 
+###  NAME: SOWMYA V
+###  ROLL NO : 212222110045
+###  DEPARTMENT: CSE IOT
 
 
 # EXPERIMENT--02-INTERFACING-A-DIGITAL-INPUT-TO-IOT-DEVELOPMENT-BOARD-
@@ -73,12 +73,35 @@ The full form of an ARM is an advanced reduced instruction set computer (RISC) m
 
 
 17. check for execution of the output by switching the board to run mode 
-
-
-
 ## STM 32 CUBE PROGRAM :
+```
+#include "main.h"
+#include "stdbool.h"
+bool IRSENSOR;
+void IRPAIR();
 
+ while (1)
+  {
+	  IRPAIR();
+  }
+void IRPAIR()
+{
+	IRSENSOR=HAL_GPIO_ReadPin(GPIOA,GPIO_PIN_4);
 
+	if(IRSENSOR==1)
+	{
+		HAL_GPIO_WritePin(GPIOA,GPIO_PIN_0,RESET);
+		HAL_Delay(1000);
+		HAL_GPIO_WritePin(GPIOA,GPIO_PIN_0,SET);
+		HAL_Delay(1000);
+	}
+	else
+	{
+		HAL_GPIO_WritePin(GPIOA,GPIO_PIN_0,RESET);
+		HAL_Delay(1000);
+	}
+}
+```
 
 ## Output  :
  
